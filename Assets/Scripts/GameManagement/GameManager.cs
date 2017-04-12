@@ -20,6 +20,10 @@ namespace GameManagement
         public bool female;
         public bool neutral;
 
+        public bool bigBoxPlaced;
+        public bool smallBoxPlaced;
+        public bool fStageComplete;
+
         public static GameManager instance = null;
 
         private void Awake()
@@ -61,6 +65,11 @@ namespace GameManagement
                 {
                     neutral = true;
                 }
+            }
+
+            if (bigBoxPlaced == true && smallBoxPlaced == true)
+            {
+                fStageComplete = true;
             }
         }
     }
