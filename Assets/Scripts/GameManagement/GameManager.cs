@@ -24,6 +24,8 @@ namespace GameManagement
         public bool smallBoxPlaced;
         public bool fStageComplete;
 
+        public int panelChange = 5;
+
         public static GameManager instance = null;
 
         private void Awake()

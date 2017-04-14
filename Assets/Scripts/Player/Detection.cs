@@ -22,10 +22,15 @@ namespace Player
         [SerializeField]
         private GameObject selectText;
 
+        [SerializeField]
+        private GameObject panelText;
+
         public bool bigBoxPickUp;
         public bool smallBoxPickUp;
 
         public static Detection instance = null;
+
+        public GameObject panel;
 
         public void Awake()
         {
@@ -127,6 +132,30 @@ namespace Player
                 {
                     smallBoxPickUp = false;
                 }
+
+                if (GameManager.instance.bigBoxPlaced == true && GameManager.instance.smallBoxPlaced == true)
+                {
+                    panelText.SetActive(true);
+                }
+
+                if (hit.collider.tag == "MiniPanel")
+                {
+                    selectText.SetActive(true);
+                    //Debug.Log(hit.collider.GetComponent<Renderer>().material.name);
+
+                    if (Input.GetKeyDown(KeyCode.E) && hit.collider.GetComponent<Renderer>().material.name == panel.GetComponent<Renderer>().material.name && GameManager.instance.female == true && GameManager.instance.panelChange > 0 || Input.GetKeyDown(KeyCode.E) && hit.collider.GetComponent<Renderer>().material.name == panel.GetComponent<Renderer>().material.name && GameManager.instance.neutral == true && GameManager.instance.panelChange > 0)
+                    {
+                        panel.GetComponent<MaterialSelector>().ChangeMaterial();
+                        GameManager.instance.panelChange -= 1;
+                        Debug.Log("Changed");
+                    }
+
+                    if (GameManager.instance.panelChange <= 0)
+                    {
+                        panelText.SetActive(true);
+                        selectText.SetActive(false);
+                    }
+                }
             }
             Debug.DrawRay(ray.origin, ray.direction * reachDistance, Color.blue);
         }
@@ -159,6 +188,11 @@ namespace Player
                 }
 
                 Destroy(other.gameObject);
+            }
+
+            if (other.gameObject.tag == "MFStageExit")
+            {
+                panelText.SetActive(false);
             }
         }
     }
