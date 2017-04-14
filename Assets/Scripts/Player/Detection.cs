@@ -25,6 +25,9 @@ namespace Player
         [SerializeField]
         private GameObject panelText;
 
+        [SerializeField]
+        private GameObject toiletDenial;
+
         public bool bigBoxPickUp;
         public bool smallBoxPickUp;
 
@@ -156,6 +159,34 @@ namespace Player
                         selectText.SetActive(false);
                     }
                 }
+
+                if (hit.collider.tag == "FemaleToilet")
+                {
+                    if (Input.GetKeyDown(KeyCode.E) && GameManager.instance.neutral == true || Input.GetKeyDown(KeyCode.E) && GameManager.instance.male == true)
+                    {
+                        toiletDenial.SetActive(true);
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.E) && GameManager.instance.female == true)
+                    {
+                        Debug.Log("Opened");
+                        toiletDenial.SetActive(false);
+                    }
+                }
+
+                if (hit.collider.tag == "MaleToilet")
+                {
+                    if (Input.GetKeyDown(KeyCode.E) && GameManager.instance.neutral == true || Input.GetKeyDown(KeyCode.E) && GameManager.instance.female == true)
+                    {
+                        toiletDenial.SetActive(true);
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.E) && GameManager.instance.male == true)
+                    {
+                        Debug.Log("Opened");
+                        toiletDenial.SetActive(false);
+                    }
+                }
             }
             Debug.DrawRay(ray.origin, ray.direction * reachDistance, Color.blue);
         }
@@ -193,6 +224,7 @@ namespace Player
             if (other.gameObject.tag == "MFStageExit")
             {
                 panelText.SetActive(false);
+                toiletDenial.SetActive(false);
             }
         }
     }
