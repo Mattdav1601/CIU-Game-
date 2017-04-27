@@ -26,6 +26,10 @@ namespace GameManagement
 
         public int panelChange = 5;
 
+        public GameObject MaleEntry;
+        public GameObject FemaleEntry;
+        public GameObject NeutralEntry;
+
         public static GameManager instance = null;
 
         private void Awake()
@@ -72,6 +76,21 @@ namespace GameManagement
             if (bigBoxPlaced == true && smallBoxPlaced == true)
             {
                 fStageComplete = true;
+            }
+
+            if (male == true)
+            {
+                Destroy(MaleEntry);
+            }
+
+            if (female == true)
+            {
+                Destroy(FemaleEntry);
+            }
+
+            if (neutral == true)
+            {
+                Destroy(NeutralEntry);
             }
         }
     }

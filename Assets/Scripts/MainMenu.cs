@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
@@ -17,7 +18,7 @@ public class MainMenu : MonoBehaviour {
 
     public void startScene()
     {
-        Application.LoadLevel("GreyBox");
+        SceneManager.LoadScene(1);
         Debug.Log("function recieved call");
     }
 
