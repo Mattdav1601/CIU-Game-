@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 42fb015e8a7a0d143b9a5007b9bf5cca
+timeCreated: 1493270494
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Venetian
+  fontNames:
+  - Venetian
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
