@@ -22,6 +22,21 @@ public class MainMenu : MonoBehaviour {
         Debug.Log("function recieved call");
     }
 
- 
+    public void mainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void artisticStatement()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+
 
 }

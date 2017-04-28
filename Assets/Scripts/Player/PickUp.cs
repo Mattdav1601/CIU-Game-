@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 namespace Player
@@ -31,6 +32,11 @@ namespace Player
         {
             bigBoxRb.isKinematic = true;
             smallBoxRb.isKinematic = true;
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadScene(0);
+            }
 
             if (Detection.instance.bigBoxPickUp == true)
             {
